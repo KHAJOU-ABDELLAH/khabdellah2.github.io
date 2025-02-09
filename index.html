@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khabdellah2</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="mainstyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
+    <meta name="description" content="Welcome to my professional portfolio showcasing certifications, achievements, and projects.">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg fixed-top py-3">
+            <div class="container">
+                <a href="#" class="navbar-brand text-uppercase font-weight-bold">Khabdellah2</a>
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a href="#home" class="nav-link text-uppercase font-weight-bold">Home <span class="sr-only">(current)</span></a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link text-uppercase font-weight-bold">About</a></li>
+                        <li class="nav-item"><a href="services.html" class="nav-link text-uppercase font-weight-bold">Services</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link text-uppercase font-weight-bold">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sections -->
+    <section id="home" class="py-5 text-center text-white">
+        <div class="container">
+            <header class="py-5 mt-5">
+                <h1 class="display-4">Welcome to My Portfolio</h1>
+                <p id="lead" class="lead mb-0">This is a showcase of my certifications, achievements, and professional background. Explore to know more!</p>
+            </header>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+
+    <script>
+        var typewriter = new Typewriter('#lead', {
+            loop: true,
+            delay: 75,
+            deleteSpeed: 50,  // Optional: set the speed at which text deletes
+        });
+
+        // Add your text to be typed
+        typewriter.typeString('This is a showcase of my certifications, achievements, and professional background. Explore to know more!')
+            .pauseFor(1000)
+            .deleteAll()
+            .start();
+    </script>
+</body>
+</html>

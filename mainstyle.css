@@ -1,0 +1,48 @@
+body {
+    font-family: 'Jersey 15', sans-serif;
+    background-image: url('new background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+}
+
+.navbar {
+    background: transparent;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1, .lead {
+    color: #d0bdf4;
+}
+
+
+a {
+    color: #a0d2eb;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+a:hover {
+    color: #ffa8b6;
+    font-size: 30px;
+}
+
+#home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    color: white; /* Optional: Text color */
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Ensures no unwanted scrollbars */
+}
+

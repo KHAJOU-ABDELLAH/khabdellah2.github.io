@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khabdellah2 - Professional Portfolio</title>
+    
+    <!-- Updated Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="about.css">
+    
+    <!-- Enhanced SEO Metadata -->
+    <meta name="description" content="Professional portfolio showcasing certifications, achievements, and projects">
+    <meta name="keywords" content="portfolio, professional, achievements, certifications">
+    
+</head>
+<body>
+
+<!-- Navbar with Dropdown Menu -->
+<nav class="navbar">
+    <div class="container">
+        <!-- Navbar Brand -->
+        <a class="navbar-brand" href="#">Khabdellah2</a>
+
+        <!-- Dropdown Toggle Button -->
+        <div class="dropdown">
+            <button class="navbar-toggler" type="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <!-- Dropdown Menu --> 
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="index.html">Home</a></li>
+                    <li><a class="dropdown-item" href="about.html">About</a></li>
+                    <li><a class="dropdown-item" href="services.html">Services</a></li>
+                    <li><a class="dropdown-item" href="#">Contact</a></li>
+                </ul>
+             </div>
+         </div>
+</nav>
+
+<section id="about" class="py-5">
+    <div class="container">
+        <header class="text-center mb-5">
+            <h2 class="display-4">About Me</h2>
+            <p id="lead" class="lead">Get to know who I am, what I do, and what drives me.</p>
+        </header>
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="font-weight-bold">Who I Am</h3>
+                <p>Hi, I'm Abdellah Khajou, an 18-year-old student with a passion for web development and technology. I have earned multiple certifications in HTML, CSS, and JavaScript, and I am currently enhancing my skills in Python. My proficiency in English is at a C1 level, enabling effective communication in diverse environments. My goal is to showcase my abilities while continuously learning and growing in the field of web development. I am eager to create impactful digital solutions and tackle new challenges that come my way.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="certifications" class="py-5">
+    <div class="container">
+        <header class="text-center mb-5">
+            <h2 class="display-4">My Certifications</h2>
+            <p class="lead">Here are some of the certifications I’ve earned in web development and programming.</p>
+        </header>
+        <div class="certifications-gallery">
+            <!-- Certification Images -->
+            <div class="certification-item">
+                <img src="Html.png" alt="HTML Certification" class="certification-image" onclick="openModal(1)">
+            </div>
+            <div class="certification-item">
+                <img src="CSS.png" alt="CSS Certification" class="certification-image" onclick="openModal(2)">
+            </div>
+            <div class="certification-item">
+                <img src="Js.png" alt="JavaScript Certification" class="certification-image" onclick="openModal(3)">
+            </div>
+            <div class="certification-item">
+                <img src="Python.png" alt="Python Certification" class ="certification-image "onclick ="openModal (4)">
+            </div>
+            <div class="certification-item">
+                <!-- Open a website instead of a modal -->
+                <img src="English.png" alt="English Certification" class="certification-image" onclick="window.open('https://cert.efset.org/fiKRA1')">
+            </div>
+        </div>
+        <p>I possess additional certificates that I am currently collecting. Once obtained, they will be displayed on this website. Additionally, I plan to link my other projects here to further demonstrate my skills in greater depth.</p>
+    </div>
+</section>
+
+             <!-- Modal (Zoomed-in Image with Navigation & Download) -->
+             <div id ="imageModal "class ="modal ">
+                 <div class ="modal-content ">
+                     <!-- Close Button -->
+                     <button type ="button "class ="btn-close "aria-label ="Close "onclick ="closeModal()"></button>
+
+                     <!-- Modal Navigation -->
+                     <div class ="modal-navigation ">
+                         <button class ="prev-btn "onclick ="navigateImage (-1)">&#10094;</button>
+                         <img id ="modalImage "src =""alt ="Zoomed Certification "class ="modal-image ">
+                         <button class ="next-btn "onclick ="navigateImage (1)">&#10095;</button>
+                     </div>
+
+                     <!-- Download Button -->
+                     <div class ="download-btn ">
+                         <a id ="downloadLink "href =""download >
+                             <button class ="btn btn-primary ">Download</button >
+                         </a >
+                     </div >
+                 </div >
+             </div >
+         </div >
+     </div >
+</section >
+<section>
+
+    <section id="academic-career" class="py-5">
+        <div class="container">
+            <header class="text-center mb-5">
+                <h2 class="display-4">My Academic Career</h2>
+                <p class="lead">A summary of my educational journey and the institutions I've attended.</p>
+            </header>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-unstyled">
+                        <li>
+                            <h4>Ibn Hazm Elementary School</h4>
+                            <p>Duration: 2013 - 2018</p>
+                            <p>Description: Completed my elementary education with a focus on science and technology, where I developed a strong interest in scientific fields.</p>
+                        </li>
+                        <li>
+                            <h4>Al Farahidi School</h4>
+                            <p>Duration: 2019 - 2021</p>
+                            <p>Description: During these three years, I furthered my foundation in scientific disciplines, deepening my passion for the sciences and solidifying my decision to pursue a career in this field.</p>
+                        </li>
+                        <li>
+                            <h4>Lycee Mohammed 6 d'Excellence</h4>
+                            <p>Duration: 2022 - Present</p>
+                            <p>Description: Currently studying Mathematical Sciences, where I am deepening my knowledge in mathematics and physics. I chose this branch due to its vast opportunities and my strong affinity for these subjects.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2>More projects</h2>
+    </section>
+
+
+<!-- Scripts -->
+<script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js "></script >
+<script src = "https://unpkg.com/typewriter-effect@latest/dist/core.js "></script >
+
+<script >
+     var typewriter = new Typewriter('#lead ', {
+         loop:true ,
+         delay :75 ,
+         deleteSpeed :50 ,
+     });
+
+     typewriter.typeString('This is a showcase of my certifications, achievements, and professional background. Explore to know more!')
+         .pauseFor (1000)
+         .deleteAll()
+         .start();
+</script >
+
+<script >
+     const images = ['Html.png ', 'CSS.png ', 'JS.png ', 'Python.png '];
+     let currentImageIndex = 0;
+
+     // Open Modal and set image
+     function openModal(index) {
+         currentImageIndex = index ;
+         const modal = document.getElementById('imageModal ');
+         const modalImage = document.getElementById('modalImage ');
+         modal.style.display = 'block ';
+         modalImage.src = images[currentImageIndex];
+
+         // Set the download link dynamically
+         const downloadLink = document.getElementById('downloadLink ');
+         downloadLink.href = images[currentImageIndex];
+     }
+     
+     // Close Modal
+     function closeModal() {
+         const modal = document.getElementById('imageModal ');
+         modal.style.display = 'none ';
+     }
+     
+     // Navigate through images
+     function navigateImage(direction) {
+         currentImageIndex += direction;
+
+         if (currentImageIndex<0 ) currentImageIndex = images.length -1 ;
+         if (currentImageIndex>=images.length ) currentImageIndex = 0 ;
+
+         const modalImage = document.getElementById('modalImage ');
+         modalImage.src = images[currentImageIndex];
+
+         // Update the download link
+         const downloadLink = document.getElementById('downloadLink ');
+         downloadLink.href = images[currentImageIndex];
+     }
+</script >
+
+</body >
+</html >
