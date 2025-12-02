@@ -3,210 +3,951 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khabdellah2 - Professional Portfolio</title>
+    <title>Abdellah Khajou | About Me</title>
     
-    <!-- Updated Bootstrap 5 CSS -->
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="about.css">
-    
-    <!-- Enhanced SEO Metadata -->
-    <meta name="description" content="Professional portfolio showcasing certifications, achievements, and projects">
-    <meta name="keywords" content="portfolio, professional, achievements, certifications">
-    
+    <style>
+        /* ===== ROOT VARIABLES ===== */
+        :root {
+            --primary-color: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary-color: #0ea5e9;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --gray-color: #64748b;
+            --success-color: #10b981;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s ease;
+            --border-radius: 12px;
+            --section-padding: 100px 0;
+        }
+
+        /* ===== GLOBAL STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-color: var(--light-color);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .jersey-font {
+            font-family: 'Jersey 15', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .section-title.text-center::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .lead-text {
+            font-size: 1.25rem;
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .section-padding {
+            padding: var(--section-padding);
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            padding: 20px 0;
+            transition: var(--transition);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .navbar-brand {
+            font-family: 'Jersey 15', sans-serif;
+            font-size: 2rem;
+            color: var(--primary-color) !important;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            transition: var(--transition);
+        }
+
+        .navbar-brand:hover {
+            color: var(--primary-dark) !important;
+            transform: translateY(-2px);
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0.5rem;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            background: transparent;
+            transition: var(--transition);
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler:hover {
+            transform: rotate(90deg);
+        }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: var(--shadow);
+            border-radius: var(--border-radius);
+            padding: 10px 0;
+            margin-top: 15px;
+        }
+
+        .dropdown-item {
+            padding: 12px 25px;
+            font-weight: 500;
+            color: var(--dark-color);
+            transition: var(--transition);
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(79, 70, 229, 0.08);
+            color: var(--primary-color);
+            padding-left: 30px;
+        }
+
+        /* ===== HERO SECTION ===== */
+        #about-hero {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6f7ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%234f46e5' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 40px;
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .badge {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* ===== CERTIFICATIONS ===== */
+        #certifications {
+            background-color: white;
+        }
+
+        .certifications-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .certification-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 280px;
+            cursor: pointer;
+        }
+
+        .certification-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .certification-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .certification-item:hover .certification-image {
+            transform: scale(1.05);
+        }
+
+        .certification-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 25px 20px 20px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .certification-item:hover .certification-overlay {
+            transform: translateY(0);
+        }
+
+        .certification-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            background: var(--primary-dark);
+            transform: rotate(90deg);
+        }
+
+        .modal-image-container {
+            width: 100%;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .modal-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .modal-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.1);
+        }
+
+        .download-btn {
+            margin-top: 20px;
+        }
+
+        .download-btn .btn {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .download-btn .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        }
+
+        /* ===== ACADEMIC CAREER ===== */
+        #academic-career {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 80px;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            left: 15px;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
+            z-index: 2;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .timeline-year {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        /* ===== SKILLS SECTION ===== */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .skill-name {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background-color: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 4px;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+
+        .skill-percentage {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE STYLES ===== */
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 70px 0;
+            }
+            
+            .navbar-brand {
+                font-size: 1.7rem;
+            }
+            
+            .hero-content {
+                text-align: center;
+            }
+            
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .certifications-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                padding-left: 60px;
+            }
+            
+            .timeline-icon {
+                left: 5px;
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+            
+            .modal-content {
+                max-width: 95%;
+                padding: 15px;
+            }
+            
+            .modal-image-container {
+                height: 50vh;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .certifications-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<!-- Navbar with Dropdown Menu -->
-<nav class="navbar">
-    <div class="container">
-        <!-- Navbar Brand -->
-        <a class="navbar-brand" href="#">Khabdellah2</a>
-
-        <!-- Dropdown Toggle Button -->
-        <div class="dropdown">
-            <button class="navbar-toggler" type="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-            
-                <!-- Dropdown Menu --> 
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="index.html">Home</a></li>
-                    <li><a class="dropdown-item" href="about.html">About</a></li>
-                    <li><a class="dropdown-item" href="services.html">Services</a></li>
-                    <li><a class="dropdown-item" href="#">Contact</a></li>
-                </ul>
-             </div>
-         </div>
-</nav>
-
-<section id="about" class="py-5">
-    <div class="container">
-        <header class="text-center mb-5">
-            <h2 class="display-4">About Me</h2>
-            <p id="lead" class="lead">Get to know who I am, what I do, and what drives me.</p>
-        </header>
-        <div class="row">
-            <div class="col-lg-12">
-                <h3 class="font-weight-bold">Who I Am</h3>
-                <p>Hi, I'm Abdellah Khajou, an 18-year-old student with a passion for web development and technology. I have earned multiple certifications in HTML, CSS, and JavaScript, and I am currently enhancing my skills in Python. My proficiency in English is at a C1 level, enabling effective communication in diverse environments. My goal is to showcase my abilities while continuously learning and growing in the field of web development. I am eager to create impactful digital solutions and tackle new challenges that come my way.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section id="certifications" class="py-5">
-    <div class="container">
-        <header class="text-center mb-5">
-            <h2 class="display-4">My Certifications</h2>
-            <p class="lead">Here are some of the certifications I’ve earned in web development and programming.</p>
-        </header>
-        <div class="certifications-gallery">
-            <!-- Certification Images -->
-            <div class="certification-item">
-                <img src="Html.png" alt="HTML Certification" class="certification-image" onclick="openModal(1)">
-            </div>
-            <div class="certification-item">
-                <img src="CSS.png" alt="CSS Certification" class="certification-image" onclick="openModal(2)">
-            </div>
-            <div class="certification-item">
-                <img src="Js.png" alt="JavaScript Certification" class="certification-image" onclick="openModal(3)">
-            </div>
-            <div class="certification-item">
-                <img src="Python.png" alt="Python Certification" class ="certification-image "onclick ="openModal (4)">
-            </div>
-            <div class="certification-item">
-                <!-- Open a website instead of a modal -->
-                <img src="English.png" alt="English Certification" class="certification-image" onclick="window.open('https://cert.efset.org/fiKRA1')">
-            </div>
-        </div>
-        <p>I possess additional certificates that I am currently collecting. Once obtained, they will be displayed on this website. Additionally, I plan to link my other projects here to further demonstrate my skills in greater depth.</p>
-    </div>
-</section>
-
-             <!-- Modal (Zoomed-in Image with Navigation & Download) -->
-             <div id ="imageModal "class ="modal ">
-                 <div class ="modal-content ">
-                     <!-- Close Button -->
-                     <button type ="button "class ="btn-close "aria-label ="Close "onclick ="closeModal()"></button>
-
-                     <!-- Modal Navigation -->
-                     <div class ="modal-navigation ">
-                         <button class ="prev-btn "onclick ="navigateImage (-1)">&#10094;</button>
-                         <img id ="modalImage "src =""alt ="Zoomed Certification "class ="modal-image ">
-                         <button class ="next-btn "onclick ="navigateImage (1)">&#10095;</button>
-                     </div>
-
-                     <!-- Download Button -->
-                     <div class ="download-btn ">
-                         <a id ="downloadLink "href =""download >
-                             <button class ="btn btn-primary ">Download</button >
-                         </a >
-                     </div >
-                 </div >
-             </div >
-         </div >
-     </div >
-</section >
-<section>
-
-    <section id="academic-career" class="py-5">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <header class="text-center mb-5">
-                <h2 class="display-4">My Academic Career</h2>
-                <p class="lead">A summary of my educational journey and the institutions I've attended.</p>
-            </header>
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="list-unstyled">
-                        <li>
-                            <h4>Ibn Hazm Elementary School</h4>
-                            <p>Duration: 2013 - 2018</p>
-                            <p>Description: Completed my elementary education with a focus on science and technology, where I developed a strong interest in scientific fields.</p>
-                        </li>
-                        <li>
-                            <h4>Al Farahidi School</h4>
-                            <p>Duration: 2019 - 2021</p>
-                            <p>Description: During these three years, I furthered my foundation in scientific disciplines, deepening my passion for the sciences and solidifying my decision to pursue a career in this field.</p>
-                        </li>
-                        <li>
-                            <h4>Lycee Mohammed 6 d'Excellence</h4>
-                            <p>Duration: 2022 - Present</p>
-                            <p>Description: Currently studying Mathematical Sciences, where I am deepening my knowledge in mathematics and physics. I chose this branch due to its vast opportunities and my strong affinity for these subjects.</p>
-                        </li>
-                    </ul>
+            <a class="navbar-brand" href="index.html">Abdellah Khajou</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about-hero" class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <div class="profile-card text-center">
+                        <div class="mb-4">
+                            <div class="profile-img-placeholder d-inline-flex align-items-center justify-content-center bg-primary text-white rounded-circle" style="width: 180px; height: 180px; font-size: 4rem;">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <h1 class="jersey-font display-5 mb-3">Abdellah Khajou</h1>
+                        <h3 class="h4 text-primary mb-4">Web Developer & Student</h3>
+                        <p class="mb-4">Passionate about creating digital solutions with modern web technologies.</p>
+                        
+                        <div class="badge-container justify-content-center">
+                            <span class="badge"><i class="fas fa-code"></i> HTML/CSS</span>
+                            <span class="badge"><i class="fab fa-js"></i> JavaScript</span>
+                            <span class="badge"><i class="fab fa-python"></i> Python</span>
+                            <span class="badge"><i class="fas fa-language"></i> English C1</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7">
+                    <h2 class="section-title mb-4">About Me</h2>
+                    <p class="lead-text mb-4">Hi, I'm <span class="text-primary fw-bold">Abdellah Khajou</span>, an 18-year-old student with a passion for web development and technology.</p>
+                    
+                    <div class="row mt-5">
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex align-items-start">
+                                <div class="me-3 text-primary">
+                                    <i class="fas fa-graduation-cap fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h4 class="h5 mb-2">Education</h4>
+                                    <p class="mb-0">Currently studying Mathematical Sciences at Lycee Mohammed 6 d'Excellence</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex align-items-start">
+                                <div class="me-3 text-primary">
+                                    <i class="fas fa-certificate fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h4 class="h5 mb-2">Certifications</h4>
+                                    <p class="mb-0">Multiple certifications in HTML, CSS, JavaScript, and Python</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex align-items-start">
+                                <div class="me-3 text-primary">
+                                    <i class="fas fa-globe fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h4 class="h5 mb-2">Languages</h4>
+                                    <p class="mb-0">Fluent in English (C1 Level) with effective communication skills</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex align-items-start">
+                                <div class="me-3 text-primary">
+                                    <i class="fas fa-bullseye fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h4 class="h5 mb-2">Goals</h4>
+                                    <p class="mb-0">Create impactful digital solutions and tackle new challenges</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <section>
-        <h2>More projects</h2>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <h2 class="section-title text-center">My Skills</h2>
+                    <p class="lead-text">Technical skills and proficiencies I've developed through study and practice</p>
+                </div>
+            </div>
+            
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3 class="skill-name">HTML5</h3>
+                    <p>Semantic markup, accessibility, and modern HTML features</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="95"></div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span class="skill-percentage">95%</span>
+                        <span class="text-muted">Advanced</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <h3 class="skill-name">CSS3</h3>
+                    <p>Flexbox, Grid, animations, and responsive design</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="90"></div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span class="skill-percentage">90%</span>
+                        <span class="text-muted">Advanced</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <h3 class="skill-name">JavaScript</h3>
+                    <p>ES6+, DOM manipulation, and basic algorithms</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="85"></div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span class="skill-percentage">85%</span>
+                        <span class="text-muted">Intermediate</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3 class="skill-name">Python</h3>
+                    <p>Currently enhancing skills in Python programming</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="75"></div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span class="skill-percentage">75%</span>
+                        <span class="text-muted">Intermediate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
+    <!-- Certifications Section -->
+    <section id="certifications" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <h2 class="section-title text-center">My Certifications</h2>
+                    <p class="lead-text">Here are some of the certifications I've earned in web development and programming</p>
+                </div>
+            </div>
+            
+            <div class="certifications-gallery">
+                <div class="certification-item" onclick="openModal('Html.png', 'HTML Certification')">
+                    <img src="Html.png" alt="HTML Certification" class="certification-image">
+                    <div class="certification-overlay">
+                        <h4 class="certification-name">HTML Certification</h4>
+                        <p>Mastery of semantic HTML5 and web structure</p>
+                    </div>
+                </div>
+                
+                <div class="certification-item" onclick="openModal('CSS.png', 'CSS Certification')">
+                    <img src="CSS.png" alt="CSS Certification" class="certification-image">
+                    <div class="certification-overlay">
+                        <h4 class="certification-name">CSS Certification</h4>
+                        <p>Advanced styling, layouts, and responsive design</p>
+                    </div>
+                </div>
+                
+                <div class="certification-item" onclick="openModal('Js.png', 'JavaScript Certification')">
+                    <img src="Js.png" alt="JavaScript Certification" class="certification-image">
+                    <div class="certification-overlay">
+                        <h4 class="certification-name">JavaScript Certification</h4>
+                        <p>Interactive web development with JavaScript</p>
+                    </div>
+                </div>
+                
+                <div class="certification-item" onclick="openModal('Python.png', 'Python Certification')">
+                    <img src="Python.png" alt="Python Certification" class="certification-image">
+                    <div class="certification-overlay">
+                        <h4 class="certification-name">Python Certification</h4>
+                        <p>Programming fundamentals with Python</p>
+                    </div>
+                </div>
+                
+                <div class="certification-item" onclick="window.open('https://cert.efset.org/fiKRA1', '_blank')">
+                    <img src="English.png" alt="English Certification" class="certification-image">
+                    <div class="certification-overlay">
+                        <h4 class="certification-name">English Certification</h4>
+                        <p>EFSET English Certificate (C1 Level) - Click to verify</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-12 text-center">
+                    <p class="text-muted">I possess additional certificates that I am currently collecting. Once obtained, they will be displayed on this website. Additionally, I plan to link my other projects here to further demonstrate my skills in greater depth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Scripts -->
-<script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js "></script >
-<script src = "https://unpkg.com/typewriter-effect@latest/dist/core.js "></script >
+    <!-- Academic Career Section -->
+    <section id="academic-career" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <h2 class="section-title text-center">My Academic Journey</h2>
+                    <p class="lead-text">A timeline of my educational path and accomplishments</p>
+                </div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2013 - 2018</span>
+                        <h3>Ibn Hazm Elementary School</h3>
+                        <p>Completed my elementary education with a focus on science and technology, where I developed a strong interest in scientific fields and foundational learning skills.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2019 - 2021</span>
+                        <h3>Al Farahidi School</h3>
+                        <p>During these three years, I furthered my foundation in scientific disciplines, deepening my passion for the sciences and solidifying my decision to pursue a career in this field.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2022 - Present</span>
+                        <h3>Lycee Mohammed 6 d'Excellence</h3>
+                        <p>Currently studying Mathematical Sciences, where I am deepening my knowledge in mathematics and physics. I chose this branch due to its vast opportunities and my strong affinity for these subjects.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script >
-     var typewriter = new Typewriter('#lead ', {
-         loop:true ,
-         delay :75 ,
-         deleteSpeed :50 ,
-     });
-
-     typewriter.typeString('This is a showcase of my certifications, achievements, and professional background. Explore to know more!')
-         .pauseFor (1000)
-         .deleteAll()
-         .start();
-</script >
-
-<script >
-     const images = ['Html.png ', 'CSS.png ', 'JS.png ', 'Python.png '];
-     let currentImageIndex = 0;
-
-     // Open Modal and set image
-     function openModal(index) {
-         currentImageIndex = index ;
-         const modal = document.getElementById('imageModal ');
-         const modalImage = document.getElementById('modalImage ');
-         modal.style.display = 'block ';
-         modalImage.src = images[currentImageIndex];
-
-         // Set the download link dynamically
-         const downloadLink = document.getElementById('downloadLink ');
-         downloadLink.href = images[currentImageIndex];
-     }
-     
-     // Close Modal
-     function closeModal() {
-         const modal = document.getElementById('imageModal ');
-         modal.style.display = 'none ';
-     }
-     
-     // Navigate through images
-     function navigateImage(direction) {
-         currentImageIndex += direction;
-
-         if (currentImageIndex<0 ) currentImageIndex = images.length -1 ;
-         if (currentImageIndex>=images.length ) currentImageIndex = 0 ;
-
-         const modalImage = document.getElementById('modalImage ');
-         modalImage.src = images[currentImageIndex];
-
-         // Update the download link
-         const downloadLink = document.getElementById('downloadLink ');
-         downloadLink.href = images[currentImageIndex];
-     }
-</script >
-
-</body >
-</html >
+    <!-- Modal for Image Viewing -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-image-container">
+                <img id="modalImage" src="" alt="Zoomed Certification" class="modal-image">
+            </div>
+            
+            <div class="modal-navigation">
+                <button class="modal-btn" onclick="navigateImage(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="download-btn">
+                    <a id="downloadLink" href="" download>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-download me-2"></i> Download Image
+                        </button>
+                    </a>
+                </div>
+                
+                <button class="modal-btn" onclick="n
