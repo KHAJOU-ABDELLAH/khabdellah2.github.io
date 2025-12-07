@@ -8,49 +8,752 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style> 
+        /* contact.css - Improved Styles */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+}
+
+/* Header & Navigation */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    padding: 1rem 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-family: 'Jersey 15', sans-serif;
+    font-size: 2.2rem;
+    color: #2c3e50;
+    letter-spacing: 1px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #3498db;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: #333;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    padding: 5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 60vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 600px;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 1.1rem;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: #ffd166;
+}
+
+.hero-illustration {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.circle:nth-child(1) {
+    width: 200px;
+    height: 200px;
+    top: 0;
+    right: 0;
+}
+
+.circle:nth-child(2) {
+    width: 150px;
+    height: 150px;
+    bottom: 20px;
+    right: 100px;
+}
+
+.circle:nth-child(3) {
+    width: 100px;
+    height: 100px;
+    bottom: 100px;
+    right: 20px;
+}
+
+/* Section Headers */
+.section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Social Media Section */
+.social-media {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.social-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-top: 5px solid;
+}
+
+.social-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.social-card.instagram {
+    border-color: #E4405F;
+}
+
+.social-card.linkedin {
+    border-color: #0A66C2;
+}
+
+.social-card.google {
+    border-color: #DB4437;
+}
+
+.social-card.github {
+    border-color: #333;
+}
+
+.social-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: white;
+}
+
+.social-card.instagram .social-icon {
+    background: linear-gradient(45deg, #405DE6, #E4405F);
+}
+
+.social-card.linkedin .social-icon {
+    background-color: #0A66C2;
+}
+
+.social-card.google .social-icon {
+    background-color: #DB4437;
+}
+
+.social-card.github .social-icon {
+    background-color: #333;
+}
+
+.social-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.social-desc {
+    color: #666;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.username-container {
+    background-color: #f8f9fa;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.username {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 500;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.social-card.instagram .social-btn {
+    background-color: #E4405F;
+}
+
+.social-card.linkedin .social-btn {
+    background-color: #0A66C2;
+}
+
+.social-card.google .social-btn {
+    background-color: #DB4437;
+}
+
+.social-card.github .social-btn {
+    background-color: #333;
+}
+
+.social-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Form Section */
+.contact-form-section {
+    padding: 5rem 2rem;
+    background-color: #f8f9fa;
+}
+
+.contact-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+    margin-bottom: 1.8rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.submit-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(106, 17, 203, 0.3);
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 3rem 2rem 1.5rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.footer-brand h3 {
+    font-family: 'Jersey 15', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.footer-brand p {
+    color: #bdc3c7;
+    line-height: 1.6;
+}
+
+.footer-links h4,
+.footer-social h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #3498db;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: #3498db;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #bdc3c7;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 4rem 2rem;
+    }
+    
+    .hero-illustration {
+        margin-top: 3rem;
+    }
+    
+    .hero-title {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        padding: 2rem 0;
+        z-index: 999;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-link {
+        justify-content: center;
+        padding: 1rem 0;
+    }
+    
+    .hero-title {
+        font-size: 2.3rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .contact-form {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+}
+    </style>
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <h1>khabdellah2</h1>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+            <div class="nav-container">
+                <h1 class="logo">khabdellah2</h1>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="about.html" class="nav-link"><i class="fas fa-user"></i> About</a></li>
+                    <li><a href="services.html" class="nav-link"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                    <li><a href="contact.html" class="nav-link active"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
         </nav>
     </header>
 
-    <section class="social-media">
-        <h1>Social Media</h1>
-        <ul class="social-links">
-            <li class="social-item">
-                <a href="https://www.instagram.com/khabdellah2" target="_blank">
-                    <i class="fab fa-instagram"></i> Instagram
-                </a>
-                <p>Username: <span class="username">khabdellah2</span></p>
-            </li>
-            <li class="social-item">
-                <a href="https://www.linkedin.com/in/username" target="_blank">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                <p>Username: <span class="username">username</span></p>
-            </li>
-            <li class="social-item">
-                <a href="https://plus.google.com/+googleusername" target="_blank">
-                    <i class="fab fa-google"></i> Google
-                </a>
-                <p>Username: <span class="username">googleusername</span></p>
-            </li>
-            <li class="social-item">
-                <a href="https://github.com/githubusername" target="_blank">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                <p>Username: <span class="username">githubusername</span></p>
-            </li>
-        </ul>
-    </section>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Get in Touch</h1>
+                <p class="hero-subtitle">Connect with me through social media or send a direct message</p>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> Email: <span>contact@khabdellah2.com</span></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Based in: <span>Morocco</span></p>
+                </div>
+            </div>
+            <div class="hero-illustration">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+        </section>
+
+        <section class="social-media">
+            <div class="section-header">
+                <h2>Social Media Profiles</h2>
+                <p>Follow me on these platforms to stay updated with my latest work and projects</p>
+            </div>
+            
+            <div class="social-grid">
+                <div class="social-card instagram">
+                    <div class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3 class="social-title">Instagram</h3>
+                    <p class="social-desc">Follow for visual content, daily updates, and behind-the-scenes</p>
+                    <div class="username-container">
+                        <p>Username: <span class="username">khabdellah2</span></p>
+                    </div>
+                    <a href="https://www.instagram.com/khabdellah2" target="_blank" class="social-btn">
+                        <span>Visit Profile</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="social-card linkedin">
+                    <div class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <h3 class="social-title">LinkedIn</h3>
+                    <p class="social-desc">Connect for professional networking and career updates</p>
+                    <div class="username-container">
+                        <p>Username: <span class="username">Abdellah Khajou</span></p>
+                    </div>
+                    <a href="www.linkedin.com/in/abdellah-khajou-7bab34325" target="_blank" class="social-btn">
+                        <span>Connect</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="social-card google">
+                    <div class="social-icon">
+                        <i class="fab fa-google"></i>
+                    </div>   
+                <div class="social-card github">
+                    <div class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3 class="social-title">GitHub</h3>
+                    <p class="social-desc">Explore my coding projects and open-source contributions</p>
+                    <div class="username-container">
+                        <p>Username: <span class="username">khajou-abdellah</span></p>
+                    </div>
+                    <a href="https://github.com/KHAJOU-ABDELLAH" target="_blank" class="social-btn">
+                        <span>View Repositories</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="contact-form-section">
+            <div class="section-header">
+                <h2>Send a Direct Message</h2>
+                <p>Have a project in mind or want to collaborate? Send me a message directly</p>
+            </div>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" placeholder="What is this regarding?" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" placeholder="Your message here..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>khabdellah2</h3>
+                <p>Building digital experiences with passion and creativity</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Me</h4>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/khabdellah2" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/username" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://plus.google.com/+googleusername" target="_blank"><i class="fab fa-google"></i></a>
+                    <a href="https://github.com/githubusername" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 khabdellah2. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+        
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }));
+        
+        // Simple form submission handler
+        const contactForm = document.querySelector(".contact-form");
+        contactForm.addEventListener("submit", function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, you would send the form data to a server
+            // For this demo, we'll just show a success message
+            const submitBtn = contactForm.querySelector(".submit-btn");
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+            submitBtn.style.backgroundColor = "#4CAF50";
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.backgroundColor = "";
+                contactForm.reset();
+            }, 3000);
+        });
+    </script>
 </body>
 </html>
